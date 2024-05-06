@@ -6,5 +6,5 @@ import { PanelMapa } from "./pages/panelMapa";
 export const routes = [
     // Default route
     { path: "/", component: <PanelCamiones /> },
-    { path: "/mapa-base", component: <PanelMapa /> },
+    { path: "/ver-Mapa", component: <PanelMapa /> },
 ]

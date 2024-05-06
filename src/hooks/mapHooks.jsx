@@ -7,7 +7,7 @@ import Map from "ol/Map";
 import { Point } from "ol/geom";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
-import { Fill, Icon, Style, Text  } from "ol/style";
+import { Fill, Icon, Style, Text } from "ol/style";
 export const useShowMapAfterDelay = (delay) => {
   const [showMap, setShowMap] = useState(false);
 
@@ -21,7 +21,7 @@ export const useShowMapAfterDelay = (delay) => {
 
   return showMap;
 };
- 
+
 export const useCreateMap = (mapRef, position, setMap) => {
   const createMap = useCallback(() => {
     const initialMap = new Map({
@@ -49,10 +49,10 @@ export const useCreateMap = (mapRef, position, setMap) => {
 export const addMarker = (map, position, image, title) => {
   // Buscar si ya existe un marcador con el mismo título
   let existingMarker;
-  map.getLayers().forEach(layer => {
+  map.getLayers().forEach((layer) => {
     if (layer.getSource() instanceof VectorSource) {
       const features = layer.getSource().getFeatures();
-      features.forEach(feature => {
+      features.forEach((feature) => {
         if (feature.get("title") === title) {
           existingMarker = feature;
         }
@@ -72,9 +72,9 @@ export const addMarker = (map, position, image, title) => {
   });
 
   let markerImageSrc;
-  if (image === 'busesIcono') {
+  if (image === "busesIcono") {
     markerImageSrc = require("../images/busesIcono.png");
-  } else if (image === 'paradero') {
+  } else if (image === "paradero") {
     markerImageSrc = require("../images/paradero.png");
   } else {
     markerImageSrc = require("../images/masIcono.png");
@@ -97,9 +97,9 @@ export const addMarker = (map, position, image, title) => {
           text: title, // Título del marcador
           offsetY: -80, // Desplazamiento vertical del texto para que aparezca sobre el marcador
           textAlign: "center", // Alineación del texto
-          fill: new Fill({ color: '#000' }), // Color del texto
-          font: '15px Arial, sans-serif', // Fuente y tamaño del texto
-          backgroundFill: new Fill({ color: 'rgba(255,255,255,0.5)' })
+          fill: new Fill({ color: "#000" }), // Color del texto
+          font: "15px Arial, sans-serif", // Fuente y tamaño del texto
+          backgroundFill: new Fill({ color: "rgba(255,255,255,0.5)" }),
         }),
       }),
     })

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "ol/ol.css";
 import { addMarker, useCreateMap, useShowMapAfterDelay } from "../hooks/mapHooks";
-
+import "../styles/generalStyles.css"
+ 
 const position = [-76.95769789314294, -12.036776926858456];
 export function MapaBase({ buses, rutas }) {
     const [map, setMap] = useState(null);
