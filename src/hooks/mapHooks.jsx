@@ -8,6 +8,8 @@ import { Point } from "ol/geom";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import { Fill, Icon, Style, Text } from "ol/style";
+import axios from "axios";
+import { camionesURL } from "../api/apiurls";
 export const useShowMapAfterDelay = (delay) => {
   const [showMap, setShowMap] = useState(false);
 
@@ -105,3 +107,35 @@ export const addMarker = (map, position, image, title) => {
     })
   );
 };
+
+
+export function useObtenerCentroMapa(url) {
+  const [positionMap, setPositionMap] = useState();
+
+  useEffect(() => {
+    const obtenerCentroMapa = async () => {
+      const results = await axios.get(url);
+      if (results.data) {
+        if (Array.isArray(results.data)) {
+          // Si los datos son un arreglo, calcula el centro en base a todas las coordenadas
+          const allCoordinates = results.data.map(item => [item.longitud, item.latitud]);
+          const averageLongitud = allCoordinates.reduce((sum, coordinate) => sum + coordinate[0], 0) / allCoordinates.length;
+          const averageLatitud = allCoordinates.reduce((sum, coordinate) => sum + coordinate[1], 0) / allCoordinates.length;
+          setPositionMap([averageLongitud, averageLatitud]);
+        } else {
+          // Si los datos son un objeto, establece el centro en base a esas coordenadas
+          const { longitud, latitud } = results.data;
+          setPositionMap([longitud, latitud]);
+        }
+      }
+    };
+    obtenerCentroMapa();
+
+    // Limpieza
+    return () => {
+      setPositionMap(null);
+    };
+  }, [url]);
+
+  return positionMap;
+}
