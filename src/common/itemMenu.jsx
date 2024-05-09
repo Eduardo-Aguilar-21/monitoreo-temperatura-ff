@@ -15,7 +15,7 @@ export function ItemMenu({ dato }) {
   const isHot = dato.temperaturaActual > 25;
   const TemperatureIcon = isHot ? FaSun : FaSnowflake;
   const temperatureClassName = isHot ? "hot" : "cold";
-
+ 
   return (
     <div className="item-menu" onClick={() => handleDetails(dato.id)}>
       <h3>Placa {dato.placa}</h3>
@@ -28,7 +28,6 @@ export function ItemMenu({ dato }) {
       <Button variant="primary">
         <RiMapPin2Line /> Ver en el mapa
       </Button>
-      {/*    <img src={icono} alt="Icono" /> */}
     </div>
   );
 }
