@@ -30,9 +30,9 @@ export function PanelMapa() {
         Atrás
       </Button>
 
-      <div style={{ margin: "auto", width: "80%", height: "120px", border: "3px solid white" }}>
-        <h1>Placa {buses && buses.placa}</h1>
-        <h2>
+      <div style={{ margin: "auto", width: "95%", height: "120px", border: "3px solid white" }}>
+        <h1 style={{color: 'white' }}>Placa {buses && buses.placa}</h1>
+        <h2 style={{color: 'white' }}>
           Temperatura Actual {buses && buses.temperaturaActual} <TemperatureIcon className={temperatureClassName} />
         </h2>
       </div>

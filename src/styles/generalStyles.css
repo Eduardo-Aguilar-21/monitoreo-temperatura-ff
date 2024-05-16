@@ -3,6 +3,9 @@
     text-align: center;
 }
 
+.texto-blanco {
+    color: "white";
+}
 .menu-contenedor {
     display: flex;
     flex-wrap: wrap;
