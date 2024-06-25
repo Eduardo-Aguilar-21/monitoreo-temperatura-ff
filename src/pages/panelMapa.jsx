@@ -2,11 +2,10 @@ import { MapaBase } from "../maps/mapaBase";
 import { useListarElementos } from "./../hooks/crudHooks";
 import { camionesURL } from "./../api/apiurls";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { FaSnowflake, FaSun, FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
-import axios from "axios";
 import { useObtenerCentroMapa } from "../hooks/mapHooks";
+import { useState } from "react";
 
 export function PanelMapa() {
   const navigation = useNavigate();
