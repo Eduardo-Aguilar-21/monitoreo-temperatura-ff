@@ -4,7 +4,7 @@
 
 // export const base = "http://192.168.0.204:8086"
 
-export const base = "http://samloto.com:4000"
+export const base = "https://samloto.com:4000"
 
 export const baseURL = `${base}/api`;
 
