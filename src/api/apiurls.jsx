@@ -2,7 +2,7 @@
 //
 //export const base = "http://localhost:8088"
 
-export const base = "http://192.168.0.204.com:8086"
+export const base = "http://192.168.0.204:8086"
 
 //export const base = "http://192.168.1.152:8086"
 
